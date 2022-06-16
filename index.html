@@ -2,6 +2,8 @@
     <head>
         <title>AR.js Basic Projected Camera Example</title>
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
         <!-- Look-at component. We don't need this now, but we will later. -->
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
@@ -13,12 +15,16 @@
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
         renderer='antialias: true; alpha: true'>
             <a-camera gps-projected-camera rotation-reader></a-camera>
-            <a-box gps-projected-entity-place='longitude: 2.4004633; latitude: 48.8627936;' material='color: red' scale='2 2 2' rotation="0 180 0">
-                <a-sphere></a-sphere>
-                <a-light></a-light>
-              </a-box>
 
+              <a-assets>
+                <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
+              </a-assets>
+
+              <a-entity gps-projected-entity-place='longitude: 2.4004633; latitude: 48.8627936;' text-geometry="value: What's up"></a-entity>
+              <a-entity gps-projected-entity-place='longitude: 2.4004633; latitude: 48.8627936;' text-geometry="value: Dog?; font: #optimerBoldFont"></a-entity>
+            </a-scene>
             <!-- <a-box gps-projected-entity-place='longitude: 2.4004633; latitude: 48.8627936;' material='color: red' scale='2 2 2' rotation="0 180 0"></a-box> -->
         </a-scene>
+
     </body>
 </html>
