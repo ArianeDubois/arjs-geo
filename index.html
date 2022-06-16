@@ -15,13 +15,13 @@
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
         renderer='antialias: true; alpha: true'>
             <a-camera gps-projected-camera rotation-reader></a-camera>
-            <a-text gps-projected-entity-place='longitude: 2.4004633; latitude: 48.8627936;' value="lereels'ecritdanslevirtuel"
-            font="Nouvellepolice-Regular-msdf.json"
-            color="#33C3F0"
-            negate="false">
-    </a-text>
+
+              <a-assets>
+                <a-asset-item id="optimerBoldFont" src="cypher.json"></a-asset-item>
+              </a-assets>
+              <a-entity gps-projected-entity-place='longitude: 2.4004633; latitude: 48.8627936;' text-geometry="value: LlEeRrEeEeLmSw@xEeCeRyIzTuDpAaNpSjLlEeVbIdRhTDUaEeLk; font: #optimerBoldFont"></a-entity>
+            </a-scene>
             <!-- <a-box gps-projected-entity-place='longitude: 2.4004633; latitude: 48.8627936;' material='color: red' scale='2 2 2' rotation="0 180 0"></a-box> -->
         </a-scene>
-
     </body>
 </html>
