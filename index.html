@@ -9,19 +9,21 @@
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
         <script src="script.js"></script>
     </head>
+
     <body>
     <a-scene
-        vr-mode-ui="enabled: false"
-        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
-        renderer='antialias: true; alpha: true'>
-            <a-camera gps-projected-camera rotation-reader></a-camera>
+    vr-mode-ui="enabled: false"
+    arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
+    renderer='antialias: true; alpha: true'>
+            <a-camera id='camera1' look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-projected-camera='gpsMinDistance: 5' rotation-reader></a-camera>
 
               <a-assets>
                 <a-asset-item id="optimerBoldFont" src="cypher.json"></a-asset-item>
               </a-assets>
-              <a-entity gps-projected-entity-place='longitude: 2.4004633; latitude: 48.8627936;' text-geometry="value: LlEeRrEeEeLmSw@xEeCeRyIzTuDpAaNpSjLlEeVbIdRhTDUaEeLk; font: #optimerBoldFont"></a-entity>
+              <!-- <a-entity gps-projected-entity-place='longitude: 2.4007000889608276; latitude:   48.862606426966884;' text-geometry="value: LlEeRrEeEeLmSw@xEeCeRyIzTuDpAaNpSjLlEeVbIdRhTDUaEeLk; font: #optimerBoldFont"  position="0 30 0"></a-entity> -->
+
+              <a-entity gps-projected-entity-place='longitude: 2.4004633; latitude: 48.8627936;' text-geometry="value: LlEeRrEeEeLmSw@xEeCeRyIzTuDpAaNpSjLlEeVbIdRhTDUaEeLk; font: #optimerBoldFont" ></a-entity>
             </a-scene>
             <!-- <a-box gps-projected-entity-place='longitude: 2.4004633; latitude: 48.8627936;' material='color: red' scale='2 2 2' rotation="0 180 0"></a-box> -->
-        </a-scene>
     </body>
 </html>
