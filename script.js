@@ -1,34 +1,35 @@
-// document.querySelector('a-scene').object3D;
-// document.querySelector('a-entity').sceneEl.object3D;
-// AFRAME.registerComponent('pointlight', {
-//     init: function () {
-//         this.el.setObject3D('light', new THREE.PointLight());
-//     }
-// });
-//*////
-// require('aframe');
-// require('aframe-text-geometry-component');
+// window.onload = () => {
+//     let places = staticLoadPlaces();
+//     renderPlaces(places);
+// };
 
-// var fontJson = require('cypher.json');
-// var el = document.createElement('a-entity');
-// el.setAttribute('text', { font: fontJson });
+// function staticLoadPlaces() {
+//     return [
+//         {
+//             location: {
+//                 lat: 48.8628025474,
+//                 lng: 2.4004587061,
+//             }
+//         },
+//     ];
+// }
+// var arToolkitSource = new THREEx.ArToolkitSource({
 
-window.onload = () => {
-
-    // first get current user location
-    return navigator.geolocation.watchPosition(position => {
-        const { latitude, longitude } = position.coords;
-
-        document.querySelector('a-entity').setAttribute('text', `value: lattitude: ${latitude}, longitude ${longitude}; color: #BBB`);
-        console.log(Math.round((latitude) * 10000) / 10000)
-        console.log(Math.round((longitude) * 10000) / 10000)
-        if (Math.round((latitude) * 10000) / 10000 == 48.8628 && Math.round((longitude) * 10000) / 10000 == 2.4005) {
-            alert('youpi')
-        }
-
-    })
-};
+//     sourceType: 'webcam',
+// })
 
 
-//     // Show a map centered at latitude / longitude.
-// });
+AFRAME.registerComponent('cypher-mesh', {
+    init: function () {
+        var materials = [new THREE.MeshBasicMaterial({
+            color: 0xFFFFFF,
+            metalness: 1, roughness: 0
+        }), new THREE.MeshBasicMaterial({
+            color: 0x000000,
+        })]
+
+        this.el.addEventListener("loaded", e => {
+            this.material = this.el.getObject3D('mesh').material = materials
+        });
+    },
+})
